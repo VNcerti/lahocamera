@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LaHo Camera - Thuê Máy Ảnh Giá Rẻ Hà Nội</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2a2a72;
+      --secondary: #ff9f1c;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+      --success: #28a745;
+      --info: #17a2b8;
+      --warning: #ffc107;
+      --danger: #dc3545;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e68a00;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+      color: var(--secondary);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .nav-links a i {
+      margin-right: 8px;
+    }
+    
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Search & Filter */
+    .search-filter {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .search-box {
+      position: relative;
+      width: 300px;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 12px 20px;
+      padding-left: 45px;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .search-box input:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.2);
+      outline: none;
+    }
+    
+    .search-box i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+    }
+    
+    .filter-select {
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      font-size: 1rem;
+      background-color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-select:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.2);
+      outline: none;
+    }
+    
+    /* Camera Grid */
+    .camera-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .camera-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .camera-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .camera-img {
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+    }
+    
+    .camera-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+    
+    .camera-card:hover .camera-img img {
+      transform: scale(1.1);
+    }
+    
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--secondary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .camera-info {
+      padding: 20px;
+    }
+    
+    .camera-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    .camera-info ul {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    
+    .camera-info ul li {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--gray);
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .camera-info ul li i {
+      color: var(--secondary);
+      margin-right: 8px;
+      font-size: 0.8rem;
+      margin-top: 3px;
+    }
+    
+    .price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+    
+    .price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--gray);
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .btn-sm {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .btn-dark {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-dark:hover {
+      background-color: #1a1a2e;
+      color: white;
+    }
+    
+    .btn-success {
+      background-color: var(--success);
+      color: white;
+    }
+    
+    .btn-success:hover {
+      background-color: #218838;
+      color: white;
+    }
+    
+    .btn-disabled {
+      background-color: #e9ecef;
+      color: #6c757d;
+      cursor: not-allowed;
+    }
+    
+    .btn-disabled:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    /* Detail Sections */
+    .detail-section {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      margin: 50px auto;
+      max-width: 800px;
+      display: none;
+    }
+    
+    .detail-section.active {
+      display: block;
+    }
+    
+    .detail-section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .detail-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+    
+    .detail-section ul {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+    
+    .detail-section ul li {
+      margin-bottom: 15px;
+      padding-left: 25px;
+      position: relative;
+    }
+    
+    .detail-section ul li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+    }
+    
+    .contact-list li a {
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-list li a:hover {
+      color: var(--secondary);
+    }
+    
+    .contact-list li i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+      width: 25px;
+      color: var(--secondary);
+    }
+    
+    /* Gallery */
+    .gallery {
+      column-count: 3;
+      column-gap: 15px;
+      margin-top: 40px;
+      display: none;
+    }
+    
+    .gallery.active {
+      display: block;
+    }
+    
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 15px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+      margin: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      opacity: 0.2;
+      z-index: 0;
+    }
+    
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 20px 30px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--secondary);
+    }
+    
+    .footer-column p {
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--secondary);
+      transform: translateX(5px);
+    }
+    
+    .footer-links a i {
+      margin-right: 8px;
+      color: var(--secondary);
+      width: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--secondary);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* Back Button */
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 25px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .back-btn:hover {
+      background-color: #1a1a2e;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .gallery {
+        column-count: 2;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+        display: none;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links li {
+        margin: 10px 0;
+        margin-left: 0;
+      }
+      
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+      
+      .hero {
+        height: 70vh;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .camera-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .detail-section {
+        padding: 30px 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+      }
+      
+      .search-filter {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .search-box, .filter-select {
+        width: 100%;
+      }
+      
+      .gallery {
+        column-count: 1;
+      }
+      
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+      
+      .cta-section p {
+        font-size: 1rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero" id="header">
+    <div class="hero-content">
+      <h1>Thuê Máy Ảnh Chuyên Nghiệp</h1>
+      <p>Khám phá thế giới nhiếp ảnh với những thiết bị cao cấp từ LaHo Camera</p>
+      <a href="#cameras" class="btn btn-primary">Xem Danh Sách Máy</a>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="logo" onclick="showSection('main-content', 0)"><i class="fas fa-camera"></i>LaHo Camera</a>
+      <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" onclick="showSection('main-content', 0)"><i class="fas fa-home"></i>Trang Chủ</a></li>
+        <li><a href="#cameras" onclick="showSection('main-content', 0)"><i class="fas fa-camera-retro"></i>Máy Ảnh</a></li>
+        <li><a href="#info" onclick="showSection('terms')"><i class="fas fa-info-circle"></i>Thông Tin Thuê</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container" id="main-content">
+    <div class="section-title">
+      <h2>Danh Sách Máy Ảnh</h2>
+      <p>Lựa chọn máy ảnh phù hợp với nhu cầu của bạn từ bộ sưu tập của chúng tôi</p>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="search-filter">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm máy ảnh..." oninput="searchCameras()">
+      </div>
+      <select class="filter-select" id="sortPrice" onchange="sortCameras()">
+        <option value="">Sắp xếp theo giá</option>
+        <option value="low-to-high">Giá: Thấp đến Cao</option>
+        <option value="high-to-low">Giá: Cao đến Thấp</option>
+      </select>
+    </div>
+
+    <!-- Camera Grid -->
+    <div class="camera-grid" id="cameraGrid">
+      <div class="camera-card" data-price="115000" data-name="Fujifilm XA2">
+        <div class="camera-img">
+          <img src="https://i.imgur.com/ogHJ2Ce.png" alt="Fujifilm XA2">
+          <span class="badge">Hết lịch</span>
+        </div>
+        <div class="camera-info">
+          <h3>Fujifilm XA2</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> Cảm biến: 16.3MP APS-C CMOS</li>
+            <li><i class="fas fa-check"></i> Ống kính: Fujinon 16-50mm f/3.5-5.6 OIS</li>
+            <li><i class="fas fa-check"></i> ISO: 200-6400 (mở rộng 100-25600)</li>
+            <li><i class="fas fa-check"></i> Chụp liên tiếp: 5.6 fps</li>
+          </ul>
+          <div class="price">Giá thuê chỉ từ 65K <span></span></div>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-outline" onclick="showPricing('xa2', this)">Bảng Giá</button>
+            <button class="btn btn-sm btn-dark" onclick="showGallery('xa2', this)">Xem Ảnh Mẫu</button>
+            <button class="btn btn-sm btn-success" onclick="showAccessories('xa2', this)">Phụ Kiện</button>
+            <button class="btn btn-sm btn-disabled">Hết Lịch</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="camera-card" data-price="145000" data-name="Fujifilm XA3">
+        <div class="camera-img">
+          <img src="https://i.imgur.com/43NXp2L.png" alt="Fujifilm XA3">
+        </div>
+        <div class="camera-info">
+          <h3>Fujifilm XA3</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> Cảm biến: 24.2MP APS-C CMOS</li>
+            <li><i class="fas fa-check"></i> Ống kính: Fujinon 16-50mm f/3.5-5.6 OIS II</li>
+            <li><i class="fas fa-check"></i> ISO: 200-6400 (mở rộng 100-25600)</li>
+            <li><i class="fas fa-check"></i> Màn hình: 3" lật cảm ứng</li>
+          </ul>
+          <div class="price">Giá thuê chỉ từ 90K <span></span></div>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-outline" onclick="showPricing('xa3', this)">Bảng Giá</button>
+            <button class="btn btn-sm btn-dark" onclick="showGallery('xa3', this)">Xem Ảnh Mẫu</button>
+            <button class="btn btn-sm btn-success" onclick="showAccessories('xa3', this)">Phụ Kiện</button>
+            <button class="btn btn-sm btn-primary" onclick="showRent('xa3', this)">Thuê Ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="camera-card" data-price="125000" data-name="Fujifilm XT-10">
+        <div class="camera-img">
+          <img src="https://i.imgur.com/BUyic3H.png" alt="Fujifilm XT-10">
+        </div>
+        <div class="camera-info">
+          <h3>Fujifilm XT-10</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> Cảm biến: 16.3MP APS-C X-Trans CMOS II – Màu ảnh trắng hồng, da mịn, ...</li>
+            <li><i class="fas fa-check"></i> Ống kính: Fujinon XC 16-50mm f/3.5-5.6 – Kit nhẹ, đa dụng, chụp chân dung, street, phong cảnh rất đa dạng</li>
+            <li><i class="fas fa-check"></i> ISO: 200-6400 (mở rộng 100-51200) – Chụp thiếu sáng tốt, ảnh vẫn sáng rõ</li>
+            <li><i class="fas fa-check"></i> Chụp liên tiếp: 8 fps – Bắt khoảnh khắc nhanh, phù hợp chụp chuyển động</li>
+            <li><i class="fas fa-check"></i> Màu phim giả lập: Có sẵn tone màu điện ảnh, vintage, tươi sáng, không cần hậu kỳ</li>
+          </ul>
+          <div class="price">Giá thuê chỉ từ 100K <span></span></div>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-outline" onclick="showPricing('xt10', this)">Bảng Giá</button>
+            <button class="btn btn-sm btn-dark" onclick="showGallery('xt10', this)">Xem Ảnh Mẫu</button>
+            <button class="btn btn-sm btn-success" onclick="showAccessories('xt10', this)">Phụ Kiện</button>
+            <button class="btn btn-sm btn-primary" onclick="showRent('xt10', this)">Thuê Ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="camera-card" data-price="115000" data-name="Canon M10">
+        <div class="camera-img">
+          <img src="https://i.imgur.com/MBWJJ46.png" alt="Canon M10">
+          <span class="badge">Hết lịch</span>
+        </div>
+        <div class="camera-info">
+          <h3>Canon M10</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> Cảm biến: 18.0MP APS-C CMOS</li>
+            <li><i class="fas fa-check"></i> Ống kính: EF-M 15-45mm f/3.5-6.3 IS STM</li>
+            <li><i class="fas fa-check"></i> ISO: 100-12800 (mở rộng 25600)</li>
+            <li><i class="fas fa-check"></i> Chụp liên tiếp: 4.6 fps</li>
+          </ul>
+          <div class="price">Giá thuê chỉ từ 65K <span></span></div>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-outline" onclick="showPricing('m10', this)">Bảng Giá</button>
+            <button class="btn btn-sm btn-dark" onclick="showGallery('m10', this)">Xem Ảnh Mẫu</button>
+            <button class="btn btn-sm btn-success" onclick="showAccessories('m10', this)">Phụ Kiện</button>
+            <button class="btn btn-sm btn-disabled">Hết Lịch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Terms Section -->
+  <div class="container">
+    <div class="detail-section" id="terms">
+      <h2>Chính Sách Thuê Máy</h2>
+      <ul>
+        <li>Khách hàng cần đặt cọc 2 triệu đồng và cung cấp CCCD. Khi kết thúc thời gian thuê, vui lòng đến shop để bàn giao máy ảnh, shop sẽ hoàn trả 100% tiền cọc và CCCD.</li>
+        <li>Khi nhận máy ảnh, bộ sản phẩm bao gồm: máy ảnh, ống kính, dây đeo, sạc, pin, thẻ nhớ, túi đựng và ốp máy ảnh. Khách hàng có trách nhiệm kiểm tra kỹ lưỡng.</li>
+        <li>Trong 2 giờ đầu tiên sau khi nhận máy, nếu phát hiện máy ảnh có lỗi hoặc hỏng hóc, khách hàng cần báo ngay cho shop để được khắc phục.</li>
+        <li>Trong trường hợp máy ảnh bị hỏng hóc hoặc va đập do lỗi của khách hàng, khách hàng phải chịu chi phí sửa chữa hoặc bồi thường 100% giá trị máy.</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content', 0)"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <!-- Accessories Sections -->
+    <div class="detail-section" id="accessories-xa2">
+      <h2>Phụ Kiện Fujifilm XA2</h2>
+      <ul>
+        <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
+        <li>Túi đựng máy ảnh</li>
+        <li>Dây đeo máy ảnh</li>
+        <li>Đầu chuyển ảnh vào điện thoại</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="accessories-xa3">
+      <h2>Phụ Kiện Fujifilm XA3</h2>
+      <ul>
+        <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
+        <li>Túi đựng máy ảnh</li>
+        <li>Dây đeo máy ảnh</li>
+        <li>Đầu chuyển ảnh vào điện thoại</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="accessories-xt10">
+      <h2>Phụ Kiện Fujifilm XT-10</h2>
+      <ul>
+        <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
+        <li>Túi đựng máy ảnh</li>
+        <li>Dây đeo máy ảnh</li>
+        <li>Đầu chuyển ảnh vào điện thoại</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="accessories-m10">
+      <h2>Phụ Kiện Canon M10</h2>
+      <ul>
+        <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
+        <li>Túi đựng máy ảnh</li>
+        <li>Dây đeo máy ảnh</li>
+        <li>Đầu chuyển ảnh vào điện thoại</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <!-- Pricing Sections -->
+    <div class="detail-section" id="pricing-xa2">
+      <h2>Bảng Giá Fujifilm XA2</h2>
+      <ul>
+        <li>6 giờ: 65.000đ</li>
+        <li>1 ngày: 115.000đ</li>
+        <li>2 ngày: 180.000đ</li>
+        <li>3 ngày: 195.000đ</li>
+        <li>Thuê trên 5 ngày: Liên hệ shop</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="pricing-xa3">
+      <h2>Bảng Giá Fujifilm XA3</h2>
+      <ul>
+        <li>6 giờ: 90.000đ</li>
+        <li>1 ngày: 145.000đ</li>
+        <li>2 ngày: 180.000đ</li>
+        <li>3 ngày: 220.000đ</li>
+        <li>Thuê trên 5 ngày: Liên hệ shop</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="pricing-xt10">
+      <h2>Bảng Giá Fujifilm XT-10</h2>
+      <ul>
+        <li>6 giờ: 100.000đ</li>
+        <li>1 ngày: 125.000đ</li>
+        <li>2 ngày: 220.000đ</li>
+        <li>3 ngày: 255.000đ</li>
+        <li>Thuê trên 5 ngày: Liên hệ shop</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="pricing-m10">
+      <h2>Bảng Giá Canon M10</h2>
+      <ul>
+        <li>6 giờ: 65.000đ</li>
+        <li>1 ngày: 115.000đ</li>
+        <li>2 ngày: 180.000đ</li>
+        <li>3 ngày: 195.000đ</li>
+        <li>Thuê trên 5 ngày: Liên hệ shop</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <!-- Rent Sections -->
+    <div class="detail-section" id="rent-xa2">
+      <h2>Thuê Fujifilm XA2</h2>
+      <ul class="contact-list">
+        <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
+        <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="rent-xa3">
+      <h2>Thuê Fujifilm XA3</h2>
+      <ul class="contact-list">
+        <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
+        <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="rent-xt10">
+      <h2>Thuê Fujifilm XT-10</h2>
+      <ul class="contact-list">
+        <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
+        <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="detail-section" id="rent-m10">
+      <h2>Thuê Canon M10</h2>
+      <ul class="contact-list">
+        <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
+        <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <!-- Gallery Sections -->
+    <div class="gallery" id="gallery-xa2">
+      <h2 class="section-title">Ảnh Mẫu Fujifilm XA2</h2>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/8RbBQCe.jpeg" alt="Fujifilm XA2 Sample 1">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/Z7wozpL.jpeg" alt="Fujifilm XA2 Sample 2">
+      </div>
+      <div class="gallery-item">
+        <img src="https://farm9.staticflickr.com/8712/16879779340_091f7a63ba_o.png" alt="Fujifilm XA2 Sample 3">
+      </div>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="gallery" id="gallery-xa3">
+      <h2 class="section-title">Ảnh Mẫu Fujifilm XA3</h2>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/TsdRc0x.jpeg" alt="Fujifilm XA3 Sample 1">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/b8Fmgsq.jpeg" alt="Fujifilm XA3 Sample 2">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/0aN60V5.jpeg" alt="Fujifilm XA3 Sample 3">
+      </div>
+      <div class="gallery-item">
+        <img src="https://farm9.staticflickr.com/8795/16881119079_55b7c1f913_o.png" alt="Fujifilm XA3 Sample 4">
+      </div>
+      <div class="gallery-item">
+        <img src="https://farm8.staticflickr.com/7725/16879553848_93e4e09a1b_o.png" alt="Fujifilm XA3 Sample 5">
+      </div>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="gallery" id="gallery-xt10">
+      <h2 class="section-title">Ảnh Mẫu Fujifilm XT-10</h2>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/TsdRc0x.jpeg" alt="Fujifilm XT-10 Sample 1">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/b8Fmgsq.jpeg" alt="Fujifilm XT-10 Sample 2">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/0aN60V5.jpeg" alt="Fujifilm XT-10 Sample 3">
+      </div>
+      <div class="gallery-item">
+        <img src="https://farm9.staticflickr.com/8795/16881119079_55b7c1f913_o.png" alt="Fujifilm XT-10 Sample 4">
+      </div>
+      <div class="gallery-item">
+        <img src="https://farm8.staticflickr.com/7725/16879553848_93e4e09a1b_o.png" alt="Fujifilm XT-10 Sample 5">
+      </div>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+
+    <div class="gallery" id="gallery-m10">
+      <h2 class="section-title">Ảnh Mẫu Canon M10</h2>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/1a/6a/ff/1a6affad74632127bbaca6e86eb844cd.jpg" alt="Canon M10 Sample 1">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/f4/04/47/f404474d265347814e5578bde4537336.jpg" alt="Canon M10 Sample 2">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/d3/5b/71/d35b7143e9a9a69f947e979b6b944914.jpg" alt="Canon M10 Sample 3">
+      </div>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="cta-section">
+    <div class="cta-content">
+      <h2>Sẵn Sàng Tạo Ra Những Bức Ảnh Tuyệt Vời?</h2>
+      <p>Liên hệ ngay với chúng tôi để thuê máy ảnh chất lượng cao với giá cả phải chăng</p>
+      <a href="https://www.instagram.com/lhngcc" target="_blank" class="btn btn-primary">Liên Hệ Thuê Máy</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Về LaHo Camera</h3>
+        <p>Dịch vụ cho thuê máy ảnh chuyên nghiệp, uy tín và chất lượng hàng đầu tại Việt Nam.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:info@lahocamera.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Liên Hệ</h3>
+        <ul class="footer-links">
+          <li><a href="tel:0346733235"><i class="fas fa-phone"></i>0346 733 235</a></li>
+          <li><a href="mailto:info@lahocamera.com"><i class="fas fa-envelope"></i>info@lahocamera.com</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i>Hà Nội, Việt Nam</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Thông Tin</h3>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showSection('terms')"><i class="fas fa-info-circle"></i>Chính Sách Thuê</a></li>
+          <li><a href="#"><i class="fas fa-question-circle"></i>Hỏi Đáp</a></li>
+          <li><a href="#"><i class="fas fa-shipping-fast"></i>Giao Nhận</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 LaHo Camera. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    let lastScrollPosition = 0;
+    
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Hide all detail sections initially
+      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show main content by default
+      document.getElementById('main-content').style.display = 'block';
+      document.getElementById('header').style.display = 'flex';
+      document.getElementById('cta-section').style.display = 'block';
+    });
+    
+    // Toggle mobile menu
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+    
+    // Show a specific section
+    function showSection(sectionId, scrollPosition = lastScrollPosition) {
+      // Hide all sections
+      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show/hide main sections
+      document.getElementById('main-content').style.display = sectionId === 'main-content' ? 'block' : 'none';
+      document.getElementById('header').style.display = sectionId === 'main-content' ? 'flex' : 'none';
+      document.getElementById('cta-section').style.display = sectionId === 'main-content' ? 'block' : 'none';
+      
+      // Show the requested section
+      if (sectionId !== 'main-content') {
+        document.getElementById(sectionId).classList.add('active');
+        window.scrollTo({ top: 0 });
+      } else {
+        // Restore scroll position when returning to main content
+        window.scrollTo({ top: scrollPosition });
+      }
+      
+      // Close mobile menu if open
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.remove('active');
+    }
+    
+    // Show gallery for a specific camera model
+    function showGallery(model, button) {
+      // Store the scroll position of the camera card
+      const card = button.closest('.camera-card');
+      lastScrollPosition = card.getBoundingClientRect().top + window.scrollY;
+      
+      // Hide all sections
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('header').style.display = 'none';
+      document.getElementById('cta-section').style.display = 'none';
+      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show the requested gallery
+      document.getElementById(`gallery-${model}`).classList.add('active');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0 });
+    }
+    
+    // Show accessories for a specific camera model
+    function showAccessories(model, button) {
+      // Store the scroll position of the camera card
+      const card = button.closest('.camera-card');
+      lastScrollPosition = card.getBoundingClientRect().top + window.scrollY;
+      
+      // Hide all sections
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('header').style.display = 'none';
+      document.getElementById('cta-section').style.display = 'none';
+      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show the requested accessories section
+      document.getElementById(`accessories-${model}`).classList.add('active');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0 });
+    }
+    
+    // Show pricing for a specific camera model
+    function showPricing(model, button) {
+      // Store the scroll position of the camera card
+      const card = button.closest('.camera-card');
+      lastScrollPosition = card.getBoundingClientRect().top + window.scrollY;
+      
+      // Hide all sections
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('header').style.display = 'none';
+      document.getElementById('cta-section').style.display = 'none';
+      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show the requested pricing section
+      document.getElementById(`pricing-${model}`).classList.add('active');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0 });
+    }
+    
+    // Show rent info for a specific camera model
+    function showRent(model, button) {
+      // Store the scroll position of the camera card
+      const card = button.closest('.camera-card');
+      lastScrollPosition = card.getBoundingClientRect().top + window.scrollY;
+      
+      // Hide all sections
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('header').style.display = 'none';
+      document.getElementById('cta-section').style.display = 'none';
+      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show the requested rent section
+      document.getElementById(`rent-${model}`).classList.add('active');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0 });
+    }
+    
+    // Search cameras by name
+    function searchCameras() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.camera-card');
+      
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        card.style.display = name.includes(input) ? '' : 'none';
+      });
+    }
+    
+    // Sort cameras by price
+    function sortCameras() {
+      const sortValue = document.getElementById('sortPrice').value;
+      const grid = document.getElementById('cameraGrid');
+      const cards = Array.from(document.querySelectorAll('.camera-card'));
+      
+      if (sortValue === 'low-to-high') {
+        cards.sort((a, b) => parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price')));
+      } else if (sortValue === 'high-to-low') {
+        cards.sort((a, b) => parseInt(b.getAttribute('data-price')) - parseInt(a.getAttribute('data-price')));
+      }
+      
+      grid.innerHTML = '';
+      cards.forEach(card => grid.appendChild(card));
+    }
+  </script>
+</body>
+</html>
