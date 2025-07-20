@@ -31,7 +31,7 @@
       background-color: #f8f9fa;
       color: #333;
       line-height: 1.6;
-      scroll-behavior: smooth; /* Thêm hiệu ứng scroll mượt */
+      scroll-behavior: smooth;
     }
     
     /* Header */
@@ -157,7 +157,7 @@
     
     /* Main Content */
     .container {
-      max-width: 1200px;
+      max-width: Illustratorpx;
       margin: 50px auto;
       padding: 0 20px;
     }
@@ -507,7 +507,7 @@
     .gallery-item img {
       width: 100%;
       height: auto;
-      display: block;
+      display Block;
       transition: transform 0.5s ease;
     }
     
@@ -859,7 +859,7 @@
             <li><i class="fas fa-check"></i> ISO: 200-6400 (mở rộng 100-25600)</li>
             <li><i class="fas fa-check"></i> Màn hình: 3" lật cảm ứng</li>
           </ul>
-          <div class="price">Giá thuê chỉ từ 90K <span></span></div>
+          <div class="price">Giá thuê chỉ từ 80K <span></span></div>
           <div class="btn-group">
             <button class="btn btn-sm btn-outline" onclick="showPricing('xa3', this)">Bảng Giá</button>
             <button class="btn btn-sm btn-dark" onclick="showGallery('xa3', this)">Xem Ảnh Mẫu</button>
@@ -891,29 +891,6 @@
           </div>
         </div>
       </div>
-
-      <div class="camera-card" data-price="115000" data-name="Canon M10">
-        <div class="camera-img">
-          <img src="https://i.imgur.com/MBWJJ46.png" alt="Canon M10">
-          <span class="badge">Hết lịch</span>
-        </div>
-        <div class="camera-info">
-          <h3>Canon M10</h3>
-          <ul>
-            <li><i class="fas fa-check"></i> Cảm biến: 18.0MP APS-C CMOS</li>
-            <li><i class="fas fa-check"></i> Ống kính: EF-M 15-45mm f/3.5-6.3 IS STM</li>
-            <li><i class="fas fa-check"></i> ISO: 100-12800 (mở rộng 25600)</li>
-            <li><i class="fas fa-check"></i> Chụp liên tiếp: 4.6 fps</li>
-          </ul>
-          <div class="price">Giá thuê chỉ từ 65K <span></span></div>
-          <div class="btn-group">
-            <button class="btn btn-sm btn-outline" onclick="showPricing('m10', this)">Bảng Giá</button>
-            <button class="btn btn-sm btn-dark" onclick="showGallery('m10', this)">Xem Ảnh Mẫu</button>
-            <button class="btn btn-sm btn-success" onclick="showAccessories('m10', this)">Phụ Kiện</button>
-            <button class="btn btn-sm btn-disabled">Hết Lịch</button>
-          </div>
-        </div>
-      </div>
     </div>
   </main>
 
@@ -927,7 +904,7 @@
         <li>Trong 2 giờ đầu tiên sau khi nhận máy, nếu phát hiện máy ảnh có lỗi hoặc hỏng hóc, khách hàng cần báo ngay cho shop để được khắc phục.</li>
         <li>Trong trường hợp máy ảnh bị hỏng hóc hoặc va đập do lỗi của khách hàng, khách hàng phải chịu chi phí sửa chữa hoặc bồi thường 100% giá trị máy.</li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content', 0)"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
     </div>
 
     <!-- Accessories Sections -->
@@ -964,18 +941,6 @@
       <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
     </div>
 
-
-    <div class="detail-section" id="accessories-m10">
-      <h2>Phụ Kiện Canon M10</h2>
-      <ul>
-        <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
-        <li>Túi đựng máy ảnh</li>
-        <li>Dây đeo máy ảnh</li>
-        <li>Đầu chuyển ảnh vào điện thoại</li>
-      </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
-    </div>
-
     <!-- Pricing Sections -->
     <div class="detail-section" id="pricing-xa2">
       <h2>Bảng Giá Fujifilm XA2</h2>
@@ -993,7 +958,7 @@
     <div class="detail-section" id="pricing-xa3">
       <h2>Bảng Giá Fujifilm XA3</h2>
       <ul>
-        <li>8 giờ: 90.000đ</li>
+        <li>8 giờ: 80.000đ</li>
         <li>1 ngày: 115.000đ</li>
         <li>2 ngày: 200.000đ</li>
         <li>3 ngày: 250.000đ</li>
@@ -1012,19 +977,6 @@
         <li>3 ngày: 300.000đ</li>
         <li>Thuê trên 5 ngày: Liên hệ shop</li>
         <li class="note">Lưu ý : Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 250.000đ và 300.000đ</li>
-      </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
-    </div>
-
-    <div class="detail-section" id="pricing-m10">
-      <h2>Bảng Giá Canon M10</h2>
-      <ul>
-        <li>6 giờ: 65.000đ</li>
-        <li>1 ngày: 115.000đ</li>
-        <li>2 ngày: 180.000đ</li>
-        <li>3 ngày: 195.000đ</li>
-        <li>Thuê trên 5 ngày: Liên hệ shop</li>
-        <li class="note">Lưu ý : Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 180.000đ và 195.000đ</li>
       </ul>
       <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
     </div>
@@ -1050,15 +1002,6 @@
 
     <div class="detail-section" id="rent-xt10">
       <h2>Thuê Fujifilm XT-10</h2>
-      <ul class="contact-list">
-        <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
-        <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
-      </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
-    </div>
-
-    <div class="detail-section" id="rent-m10">
-      <h2>Thuê Canon M10</h2>
       <ul class="contact-list">
         <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
         <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
@@ -1098,7 +1041,6 @@
       <div class="gallery-item">
         <img src="https://i.imgur.com/LjnW5Pv.jpeg" alt="Fujifilm XA3 Sample 3">
       </div>
-    
       <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
     </div>
 
@@ -1114,24 +1056,10 @@
         <img src="https://i.imgur.com/0aN60V5.jpeg" alt="Fujifilm XT-10 Sample 3">
       </div>
       <div class="gallery-item">
-        <img src="https://farm9.staticflickr.com/8795/16881119079_55b7c1f913_o.png" alt="Fujifilm XT-10 Sample 4">
+        <img src="https://i.imgur.com/wQVr6Ox.jpeg" alt="Fujifilm XT-10 Sample 4">
       </div>
       <div class="gallery-item">
-        <img src="https://farm8.staticflickr.com/7725/16879553848_93e4e09a1b_o.png" alt="Fujifilm XT-10 Sample 5">
-      </div>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
-    </div>
-
-    <div class="gallery" id="gallery-m10">
-      <h2 class="section-title">Ảnh Mẫu Canon M10</h2>
-      <div class="gallery-item">
-        <img src="https://i.pinimg.com/736x/1a/6a/ff/1a6affad74632127bbaca6e86eb844cd.jpg" alt="Canon M10 Sample 1">
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.pinimg.com/736x/f4/04/47/f404474d265347814e5578bde4537336.jpg" alt="Canon M10 Sample 2">
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.pinimg.com/736x/d3/5b/71/d35b7143e9a9a69f947e979b6b944914.jpg" alt="Canon M10 Sample 3">
+        <img src="https://i.imgur.com/nXD3rVI.jpeg" alt="Fujifilm XT-10 Sample 5">
       </div>
       <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
     </div>
@@ -1340,4 +1268,4 @@
     }
   </script>
 </body>
-</html> 
+</html>
