@@ -5,19 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LaHo Camera - Thuê Máy Ảnh Giá Rẻ Hà Nội</title>
   <link rel="icon" href="https://i.imgur.com/j2RV5md.jpeg" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --primary: #2a2a72;
-      --secondary: #ff9f1c;
-      --dark: #1a1a2e;
-      --light: #f8f9fa;
-      --gray: #6c757d;
-      --success: #28a745;
-      --info: #17a2b8;
-      --warning: #ffc107;
-      --danger: #dc3545;
+      --primary-dark: #1e40af;
+      --secondary: #f59e0b;
+      --secondary-light: #fcd34d;
+      --dark: #1f2937;
+      --darker: #111827;
+      --light: #f8fafc;
+      --gray: #6b7280;
+      --gray-light: #e5e7eb;
+      --success: #10b981;
+      --info: #3b82f6;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      --rounded-sm: 0.25rem;
+      --rounded: 0.5rem;
+      --rounded-md: 0.75rem;
+      --rounded-lg: 1rem;
+      --rounded-xl: 1.25rem;
+      --rounded-full: 9999px;
     }
     
     * {
@@ -28,17 +43,22 @@
     
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      background-color: var(--light);
+      color: var(--dark);
       line-height: 1.6;
-      scroll-behavior: smooth;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
     }
     
     /* Header */
     .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), 
                   url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      height: 80vh;
+      height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -46,6 +66,7 @@
       text-align: center;
       color: white;
       position: relative;
+      margin-bottom: 0;
     }
     
     .hero-content {
@@ -55,46 +76,57 @@
     
     .hero h1 {
       font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 5px rgba(251, 249, 249, 0.3);
+      background: linear-gradient(to right, #ffffff, var(--secondary-light));
+      -webkit-background-clip: text;
+     
     }
     
     .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
       opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 32px;
+      border-radius: var(--rounded-full);
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
+      font-size: 1rem;
+      gap: 8px;
     }
     
     .btn-primary {
       background-color: var(--secondary);
-      color: white;
+      color: var(--darker);
+      box-shadow: var(--shadow-md);
     }
     
     .btn-primary:hover {
-      background-color: #e68a00;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background-color: var(--secondary-light);
+      box-shadow: var(--shadow-lg);
     }
     
     /* Navigation */
     .navbar {
       background-color: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow);
       position: sticky;
       top: 0;
       z-index: 1000;
+      padding: 0.5rem 0;
     }
     
     .navbar-container {
@@ -103,47 +135,64 @@
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 15px 20px;
+      padding: 0 20px;
     }
     
     .logo {
       display: flex;
       align-items: center;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
       color: var(--primary);
       text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      gap: 10px;
     }
     
     .logo i {
-      margin-right: 10px;
       color: var(--secondary);
+      font-size: 1.5rem;
     }
     
     .nav-links {
       display: flex;
       list-style: none;
-    }
-    
-    .nav-links li {
-      margin-left: 30px;
+      gap: 1.5rem;
     }
     
     .nav-links a {
       color: var(--dark);
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
+      gap: 8px;
+      position: relative;
+      padding: 0.75rem 0;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--secondary);
+      transition: width 0.3s ease;
     }
     
     .nav-links a:hover {
-      color: var(--secondary);
+      color: var(--primary);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
     }
     
     .nav-links a i {
-      margin-right: 8px;
+      font-size: 1rem;
     }
     
     .menu-toggle {
@@ -153,24 +202,29 @@
       cursor: pointer;
       background: none;
       border: none;
+      z-index: 1001;
     }
     
     /* Main Content */
     .container {
-      max-width: Illustratorpx;
-      margin: 50px auto;
-      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 20px;
+    }
+    
+    .section {
+      padding: 4rem 0;
     }
     
     .section-title {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 3rem;
     }
     
     .section-title h2 {
       font-size: 2.5rem;
       color: var(--primary);
-      margin-bottom: 15px;
+      margin-bottom: 1rem;
       position: relative;
       display: inline-block;
     }
@@ -182,67 +236,77 @@
       left: 50%;
       transform: translateX(-50%);
       width: 80px;
-      height: 3px;
+      height: 4px;
       background-color: var(--secondary);
+      border-radius: var(--rounded-full);
     }
     
     .section-title p {
       color: var(--gray);
       max-width: 700px;
       margin: 0 auto;
+      font-size: 1.1rem;
     }
     
     /* Search & Filter */
     .search-filter {
       display: flex;
       justify-content: center;
-      margin-bottom: 40px;
+      margin-bottom: 3rem;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 1rem;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-sm);
     }
     
     .search-box {
       position: relative;
-      width: 300px;
+      min-width: 300px;
+      flex: 1;
     }
     
     .search-box input {
       width: 100%;
-      padding: 12px 20px;
-      padding-left: 45px;
-      border: 1px solid #ddd;
-      border-radius: 50px;
+      padding: 0.75rem 1.25rem;
+      padding-left: 3rem;
+      border: 2px solid var(--gray-light);
+      border-radius: var(--rounded-full);
       font-size: 1rem;
       transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
     }
     
     .search-box input:focus {
-      border-color: var(--secondary);
-      box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.2);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
       outline: none;
     }
     
     .search-box i {
       position: absolute;
-      left: 15px;
+      left: 1.25rem;
       top: 50%;
       transform: translateY(-50%);
       color: var(--gray);
     }
     
     .filter-select {
-      padding: 12px 20px;
-      border: 1px solid #ddd;
-      border-radius: 50px;
+      padding: 0.75rem 1.25rem;
+      border: 2px solid var(--gray-light);
+      border-radius: var(--rounded-full);
       font-size: 1rem;
       background-color: white;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      min-width: 200px;
     }
     
     .filter-select:focus {
-      border-color: var(--secondary);
-      box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.2);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
       outline: none;
     }
     
@@ -250,22 +314,23 @@
     .camera-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
+      gap: 2rem;
+      margin: 0 auto;
     }
     
     .camera-card {
       background-color: white;
-      border-radius: 10px;
+      border-radius: var(--rounded-lg);
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.3s ease;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
     
     .camera-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--shadow-lg);
     }
     
     .camera-img {
@@ -286,56 +351,65 @@
     }
     
     .camera-card:hover .camera-img img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     
     .badge {
       position: absolute;
-      top: 15px;
-      right: 15px;
-      background-color: var(--secondary);
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--danger);
       color: white;
-      padding: 5px 10px;
-      border-radius: 50px;
-      font-size: 0.8rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--rounded-full);
+      font-size: 0.75rem;
       font-weight: 600;
+      z-index: 2;
     }
     
     .camera-info {
-      padding: 20px;
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     
     .camera-info h3 {
       font-size: 1.5rem;
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
       color: var(--primary);
     }
     
     .camera-info ul {
       list-style: none;
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      flex: 1;
     }
     
     .camera-info ul li {
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-      color: var(--gray);
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--dark);
       display: flex;
       align-items: flex-start;
+      gap: 0.5rem;
     }
     
     .camera-info ul li i {
       color: var(--secondary);
-      margin-right: 8px;
+      margin-top: 0.25rem;
       font-size: 0.8rem;
-      margin-top: 3px;
     }
     
     .price {
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--secondary);
-      margin-bottom: 15px;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: -1.8rem;
     }
     
     .price span {
@@ -346,12 +420,12 @@
     
     .btn-group {
       display: flex;
-      gap: 10px;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
     
     .btn-sm {
-      padding: 8px 15px;
+      padding: 0.5rem 1rem;
       font-size: 0.9rem;
     }
     
@@ -363,7 +437,7 @@
     
     .btn-outline:hover {
       background-color: var(--secondary);
-      color: white;
+      color: var(--darker);
     }
     
     .btn-dark {
@@ -372,7 +446,7 @@
     }
     
     .btn-dark:hover {
-      background-color: #1a1a2e;
+      background-color: var(--primary-dark);
       color: white;
     }
     
@@ -382,28 +456,28 @@
     }
     
     .btn-success:hover {
-      background-color: #218838;
+      background-color: #0d9f6e;
       color: white;
     }
     
     .btn-disabled {
-      background-color: #e9ecef;
-      color: #6c757d;
+      background-color: var(--gray-light);
+      color: var(--gray);
       cursor: not-allowed;
+      opacity: 0.7;
     }
     
     .btn-disabled:hover {
-      transform: none;
-      box-shadow: none;
+      background-color: var(--gray-light);
     }
     
     /* Detail Sections */
     .detail-section {
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      padding: 40px;
-      margin: 50px auto;
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow);
+      padding: 3rem;
+      margin: 2rem auto;
       max-width: 800px;
       display: none;
     }
@@ -414,11 +488,11 @@
     
     .detail-section h2 {
       font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 20px;
+      color: #2a2a72;
+      margin-bottom: 2rem;
       text-align: center;
       position: relative;
-      padding-bottom: 15px;
+      padding-bottom: 1rem;
     }
     
     .detail-section h2::after {
@@ -428,19 +502,21 @@
       left: 50%;
       transform: translateX(-50%);
       width: 80px;
-      height: 3px;
+      height: 4px;
       background-color: var(--secondary);
+      border-radius: var(--rounded-full);
     }
     
     .detail-section ul {
       list-style: none;
-      margin-bottom: 30px;
+      margin-bottom: 2rem;
     }
     
     .detail-section ul li {
-      margin-bottom: 15px;
-      padding-left: 25px;
+      margin-bottom: 1rem;
+      padding-left: 2rem;
       position: relative;
+      line-height: 1.6;
     }
     
     .detail-section ul li::before {
@@ -456,6 +532,11 @@
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--secondary);
+      margin-top: 1.5rem;
+    }
+    
+    .contact-list li {
+      margin-bottom: 1.5rem;
     }
     
     .contact-list li a {
@@ -463,7 +544,10 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      font-weight: 600;
+      gap: 1rem;
     }
     
     .contact-list li a:hover {
@@ -471,43 +555,56 @@
     }
     
     .contact-list li i {
-      margin-right: 10px;
-      font-size: 1.2rem;
-      width: 25px;
-      color: var(--secondary);
+      font-size: 1.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: rgba(37, 99, 235, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-list li a:hover i {
+      background-color: var(--secondary);
+      color: white;
     }
     
     /* Gallery */
-    .gallery {
-      column-count: 3;
-      column-gap: 15px;
-      margin-top: 40px;
+    .gallery-container {
       display: none;
     }
     
-    .gallery.active {
+    .gallery-container.active {
       display: block;
+    }
+    
+    .gallery {
+      column-count: 3;
+      column-gap: 1rem;
+      margin: 2rem 0;
     }
     
     .gallery-item {
       break-inside: avoid;
-      margin-bottom: 15px;
+      margin-bottom: 1rem;
       position: relative;
       overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      border-radius: var(--rounded-md);
+      box-shadow: var(--shadow-sm);
       transition: all 0.3s ease;
     }
     
     .gallery-item:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--shadow-md);
     }
     
     .gallery-item img {
       width: 100%;
       height: auto;
-      display Block;
+      display: block;
       transition: transform 0.5s ease;
     }
     
@@ -517,13 +614,13 @@
     
     /* CTA Section */
     .cta-section {
-      background: linear-gradient(135deg, var(--primary), var(--dark));
-      padding: 80px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      padding: 6rem 2rem;
       text-align: center;
       color: white;
-      margin: 80px 0;
       position: relative;
       overflow: hidden;
+      margin: 5rem 0;
     }
     
     .cta-section::before {
@@ -534,7 +631,7 @@
       width: 100%;
       height: 100%;
       background: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      opacity: 0.2;
+      opacity: 0.1;
       z-index: 0;
     }
     
@@ -547,21 +644,23 @@
     
     .cta-section h2 {
       font-size: 2.5rem;
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      color: white;
     }
     
     .cta-section p {
       font-size: 1.2rem;
-      margin-bottom: 30px;
+      margin-bottom: 2rem;
       opacity: 0.9;
     }
     
     /* Footer */
     footer {
-      background-color: var(--dark);
+      background-color: var(--darker);
       color: white;
-      padding: 60px 20px 30px;
+      padding: 5rem 2rem 2rem;
       text-align: center;
+      margin-top: 5rem;
     }
     
     .footer-content {
@@ -569,31 +668,34 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      gap: 3rem;
       text-align: left;
     }
     
     .footer-column h3 {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
       color: var(--secondary);
       position: relative;
       display: inline-block;
+      font-family: 'Montserrat', sans-serif;
     }
     
     .footer-column h3::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: -0.5rem;
       left: 0;
-      width: 50px;
-      height: 2px;
+      width: 3rem;
+      height: 3px;
       background-color: var(--secondary);
+      border-radius: var(--rounded-full);
     }
     
     .footer-column p {
-      margin-bottom: 15px;
+      margin-bottom: 1.5rem;
       opacity: 0.8;
+      line-height: 1.7;
     }
     
     .footer-links {
@@ -601,7 +703,7 @@
     }
     
     .footer-links li {
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
     }
     
     .footer-links a {
@@ -611,32 +713,32 @@
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
+      gap: 0.75rem;
     }
     
     .footer-links a:hover {
       opacity: 1;
       color: var(--secondary);
-      transform: translateX(5px);
     }
     
     .footer-links a i {
-      margin-right: 8px;
       color: var(--secondary);
-      width: 20px;
+      width: 1.25rem;
+      font-size: 1rem;
     }
     
     .social-links {
       display: flex;
-      gap: 15px;
-      margin-top: 20px;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
     
     .social-links a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 2.5rem;
+      height: 2.5rem;
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       color: white;
@@ -646,12 +748,12 @@
     
     .social-links a:hover {
       background-color: var(--secondary);
-      transform: translateY(-5px);
+      color: var(--darker);
     }
     
     .copyright {
-      margin-top: 50px;
-      padding-top: 20px;
+      margin-top: 4rem;
+      padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       opacity: 0.7;
       font-size: 0.9rem;
@@ -659,23 +761,26 @@
     
     /* Back Button */
     .back-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 10px 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
       background-color: var(--primary);
       color: white;
-      border-radius: 50px;
+      border-radius: var(--rounded-full);
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-sm);
     }
     
     .back-btn:hover {
-      background-color: #1a1a2e;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      background-color: var(--primary-dark);
+      box-shadow: var(--shadow);
     }
     
     /* Responsive */
@@ -687,39 +792,54 @@
       .gallery {
         column-count: 2;
       }
+      
+      .section {
+        padding: 3rem 0;
+      }
     }
     
     @media (max-width: 768px) {
       .navbar-container {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 0.75rem 1.5rem;
       }
       
       .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: white;
         flex-direction: column;
-        width: 100%;
-        margin-top: 20px;
-        display: none;
+        align-items: flex-start;
+        padding: 5rem 2rem;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
       }
       
       .nav-links.active {
-        display: flex;
+        right: 0;
       }
       
       .nav-links li {
-        margin: 10px 0;
-        margin-left: 0;
+        margin: 0;
+        width: 100%;
+      }
+      
+      .nav-links a {
+        padding: 1rem 0;
+        width: 100%;
       }
       
       .menu-toggle {
         display: block;
-        position: absolute;
-        top: 15px;
-        right: 20px;
       }
       
       .hero {
-        height: 70vh;
+        height: 80vh;
+        margin-bottom: 0;
       }
       
       .hero h1 {
@@ -739,7 +859,15 @@
       }
       
       .detail-section {
-        padding: 30px 20px;
+        padding: 2rem;
+      }
+      
+      .cta-section {
+        padding: 4rem 1.5rem;
+      }
+      
+      .cta-section h2 {
+        font-size: 2rem;
       }
     }
     
@@ -749,12 +877,12 @@
       }
       
       .btn {
-        padding: 10px 20px;
+        padding: 0.75rem 1.5rem;
       }
       
       .search-filter {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
       }
       
       .search-box, .filter-select {
@@ -765,16 +893,16 @@
         column-count: 1;
       }
       
-      .cta-section h2 {
-        font-size: 2rem;
-      }
-      
       .cta-section p {
         font-size: 1rem;
       }
       
       .footer-content {
         grid-template-columns: 1fr;
+      }
+      
+      .detail-section {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -783,128 +911,214 @@
   <!-- Hero Section -->
   <section class="hero" id="header">
     <div class="hero-content">
-      <h1>Thuê Máy Ảnh Giá Tốt</h1>
-      <p>Trải nghiệm máy ảnh chuyên nghiệp với mức giá cực yêu thương từ LaHo Camera</p>
-      <a href="#cameras" class="btn btn-primary">Xem Danh Sách Máy</a>
+      <h1>THUÊ MÁY ẢNH GIÁ RẺ</h1>
+      <p>Trải nghiệm máy ảnh chuyên nghiệp với mức giá ưu đãi từ LaHo Camera</p>
+      <a href="#cameras" class="btn btn-primary">
+        <i class="fas fa-camera"></i> Xem Danh Sách Máy
+      </a>
     </div>
   </section>
 
   <!-- Navigation -->
   <nav class="navbar">
     <div class="navbar-container">
-      <a href="#" class="logo" onclick="showSection('main-content', 0)"><i class="fas fa-camera"></i>LaHo Camera</a>
-      <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+      <a href="#" class="logo" onclick="showSection('main-content', 0)">
+        <i class="fas fa-camera-retro"></i>
+        <span>LaHo Camera</span>
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#" onclick="showSection('main-content', 0)"><i class="fas fa-home"></i>Trang Chủ</a></li>
-        <li><a href="#cameras" onclick="showSection('main-content', 0)"><i class="fas fa-camera-retro"></i>Máy Ảnh</a></li>
-        <li><a href="#info" onclick="showSection('terms')"><i class="fas fa-info-circle"></i>Thông Tin Thuê</a></li>
+        <li><a href="#" onclick="showSection('main-content', 0)">
+          <i class="fas fa-home"></i> Trang Chủ
+        </a></li>
+        <li><a href="#cameras" onclick="showSection('main-content', 0)">
+          <i class="fas fa-camera"></i> Danh Sách Máy
+        </a></li>
+        <li><a href="#info" onclick="showSection('terms')">
+          <i class="fas fa-info-circle"></i> Điều Khoản Thuê
+        </a></li>
+        <li><a href="https://www.instagram.com/laho.camera" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Main Content -->
-  <main class="container" id="main-content">
-    <div class="section-title" id="cameras">
-      <h2>Danh Sách Máy Ảnh</h2>
-      <p>Lựa chọn máy ảnh phù hợp với nhu cầu của bạn từ bộ sưu tập của chúng tôi</p>
-    </div>
-
-    <!-- Search & Filter -->
-    <div class="search-filter">
-      <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" placeholder="Tìm kiếm máy ảnh..." oninput="searchCameras()">
+  <main class="container">
+    <section class="section" id="main-content">
+      <div class="section-title" id="cameras">
+        <h2>Danh Sách Máy Ảnh</h2>
+        <p>Lựa chọn máy ảnh phù hợp với nhu cầu của bạn từ bộ sưu tập của chúng tôi</p>
       </div>
-      <select class="filter-select" id="sortPrice" onchange="sortCameras()">
-        <option value="">Sắp xếp theo giá</option>
-        <option value="low-to-high">Giá: Thấp đến Cao</option>
-        <option value="high-to-low">Giá: Cao đến Thấp</option>
-      </select>
-    </div>
 
-    <!-- Camera Grid -->
-    <div class="camera-grid" id="cameraGrid">
-      <div class="camera-card" data-price="115000" data-name="Fujifilm XA2">
-        <div class="camera-img">
-          <img src="https://i.imgur.com/ogHJ2Ce.png" alt="Fujifilm XA2">
-          <span class="badge">Hết lịch</span>
+      <!-- Search & Filter -->
+      <div class="search-filter">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Tìm kiếm máy ảnh..." oninput="searchCameras()">
         </div>
-        <div class="camera-info">
-          <h3>Fujifilm XA2</h3>
-          <ul>
-            <li><i class="fas fa-check"></i> Cảm biến: 16.3MP APS-C CMOS</li>
-            <li><i class="fas fa-check"></i> Ống kính: Fujinon 16-50mm f/3.5-5.6 OIS</li>
-            <li><i class="fas fa-check"></i> ISO: 200-6400 (mở rộng 100-25600)</li>
-            <li><i class="fas fa-check"></i> Chụp liên tiếp: 5.6 fps</li>
-          </ul>
-          <div class="price">Giá thuê 1 buổi chỉ từ 65K <span></span></div>
-          <div class="btn-group">
-            <button class="btn btn-sm btn-outline" onclick="showPricing('xa2', this)">Bảng Giá</button>
-            <button class="btn btn-sm btn-dark" onclick="showGallery('xa2', this)">Xem Ảnh Mẫu</button>
-            <button class="btn btn-sm btn-success" onclick="showAccessories('xa2', this)">Phụ Kiện</button>
-            <button class="btn btn-sm btn-disabled">Hết Lịch</button>
+        <select class="filter-select" id="sortPrice" onchange="sortCameras()">
+          <option value="">Sắp xếp theo giá</option>
+          <option value="low-to-high">Giá: Thấp đến Cao</option>
+          <option value="high-to-low">Giá: Cao đến Thấp</option>
+        </select>
+      </div>
+
+      <!-- Camera Grid -->
+      <div class="camera-grid" id="cameraGrid">
+        <div class="camera-card" data-price="115000" data-name="Fujifilm XA2">
+          <div class="camera-img">
+            <img src="https://i.imgur.com/ogHJ2Ce.png" alt="Fujifilm XA2">
+            <span class="badge">Hết lịch</span>
+          </div>
+          <div class="camera-info">
+            <h3>Fujifilm XA2</h3>
+            <ul>
+              <li><i class="fas fa-check"></i> Cảm biến: 16.3MP APS-C CMOS</li>
+              <li><i class="fas fa-check"></i> Ống kính: Fujinon 16-50mm f/3.5-5.6 OIS</li>
+              <li><i class="fas fa-check"></i> ISO: 200-6400 (mở rộng 100-25600)</li>
+              <li><i class="fas fa-check"></i> Chụp liên tiếp: 5.6 fps</li>
+            </ul>
+            <div class="price">
+              <span></span>Chỉ với 65.000đ cho 1 buổi
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-outline" onclick="showPricing('xa2', this)">
+                <i class="fas fa-tags"></i> Bảng Giá
+              </button>
+              <button class="btn btn-sm btn-dark" onclick="showGallery('xa2', this)">
+                <i class="fas fa-images"></i> Ảnh Mẫu
+              </button>
+              <button class="btn btn-sm btn-success" onclick="showAccessories('xa2', this)">
+                <i class="fas fa-camera"></i> Phụ Kiện
+              </button>
+              <button class="btn btn-sm btn-disabled">
+                <i class="fas fa-calendar-times"></i> Hết Lịch
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="camera-card" data-price="145000" data-name="Fujifilm XA3">
+          <div class="camera-img">
+            <img src="https://i.imgur.com/43NXp2L.png" alt="Fujifilm XA3">
+          </div>
+          <div class="camera-info">
+            <h3>Fujifilm XA3</h3>
+            <ul>
+              <li><i class="fas fa-check"></i> Cảm biến: 24.2MP APS-C CMOS</li>
+              <li><i class="fas fa-check"></i> Ống kính: Fujinon 16-50mm f/3.5-5.6 OIS II</li>
+              <li><i class="fas fa-check"></i> ISO: 200-6400 (mở rộng 100-25600)</li>
+              <li><i class="fas fa-check"></i> Màn hình: 3" lật cảm ứng</li>
+            </ul>
+            <div class="price">
+              <span></span>Chỉ với 80.000đ cho 1 buổi 
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-outline" onclick="showPricing('xa3', this)">
+                <i class="fas fa-tags"></i> Bảng Giá
+              </button>
+              <button class="btn btn-sm btn-dark" onclick="showGallery('xa3', this)">
+                <i class="fas fa-images"></i> Ảnh Mẫu
+              </button>
+              <button class="btn btn-sm btn-success" onclick="showAccessories('xa3', this)">
+                <i class="fas fa-camera"></i> Phụ Kiện
+              </button>
+              <button class="btn btn-sm btn-primary" onclick="showRent('xa3', this)">
+                <i class="fas fa-calendar-check"></i> Thuê Ngay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="camera-card" data-price="125000" data-name="Fujifilm XT-10">
+          <div class="camera-img">
+            <img src="https://i.imgur.com/ecBiRtt.png" alt="Fujifilm XT-10">
+          </div>
+          <div class="camera-info">
+            <h3>Fujifilm XT-10</h3>
+            <ul>
+              <li><i class="fas fa-check"></i> Cảm biến 16.3MP X-Trans II</li>
+              <li><i class="fas fa-check"></i> Ống kính: Fujinon XC 16-50mm f/3.5-5.6</li>
+              <li><i class="fas fa-check"></i> ISO từ 200 đến 6400 (mở rộng 51200)</li>
+              <li><i class="fas fa-check"></i> Chụp liên tiếp: 8 fps</li>
+              <li><i class="fas fa-check"></i> Giả lập màu phim độc quyền</li>
+            </ul>
+            <div class="price">
+              <span></span>Chỉ với 120.000đ cho 1 buổi
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-outline" onclick="showPricing('xt10', this)">
+                <i class="fas fa-tags"></i> Bảng Giá
+              </button>
+              <button class="btn btn-sm btn-dark" onclick="showGallery('xt10', this)">
+                <i class="fas fa-images"></i> Ảnh Mẫu
+              </button>
+              <button class="btn btn-sm btn-success" onclick="showAccessories('xt10', this)">
+                <i class="fas fa-camera"></i> Phụ Kiện
+              </button>
+              <button class="btn btn-sm btn-primary" onclick="showRent('xt10', this)">
+                <i class="fas fa-calendar-check"></i> Thuê Ngay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="camera-card" data-price="150000" data-name="Fujifilm XT-100">
+          <div class="camera-img">
+            <img src="https://i.imgur.com/ATB8qi8.png" alt="Fujifilm XT-100">
+          </div>
+          <div class="camera-info">
+            <h3>Fujifilm XT-100</h3>
+            <ul>
+              <li><i class="fas fa-check"></i> Cảm biến 24.2MP APS-C</li>
+              <li><i class="fas fa-check"></i> Ống kính: Fujinon XC 15-45mm f/3.5-5.6</li>
+              <li><i class="fas fa-check"></i> Màn hình xoay lật cảm ứng 3 inch</li>
+              <li><i class="fas fa-check"></i> ISO từ 200 đến 12800 (mở rộng 51200)</li>
+              <li><i class="fas fa-check"></i> Chụp liên tiếp 6 fps</li>
+              <li><i class="fas fa-check"></i> Giả lập màu phim Fujifilm</li>
+            </ul>
+            <div class="price">
+              <span></span>Chỉ với 150.000đ cho 1 buổi
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-outline" onclick="showPricing('xt100', this)">
+                <i class="fas fa-tags"></i> Bảng Giá
+              </button>
+              <button class="btn btn-sm btn-dark" onclick="showGallery('xt100', this)">
+                <i class="fas fa-images"></i> Ảnh Mẫu
+              </button>
+              <button class="btn btn-sm btn-success" onclick="showAccessories('xt100', this)">
+                <i class="fas fa-camera"></i> Phụ Kiện
+              </button>
+              <button class="btn btn-sm btn-primary" onclick="showRent('xt100', this)">
+                <i class="fas fa-calendar-check"></i> Thuê Ngay
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="camera-card" data-price="145000" data-name="Fujifilm XA3">
-        <div class="camera-img">
-          <img src="https://i.imgur.com/43NXp2L.png" alt="Fujifilm XA3">
-        </div>
-        <div class="camera-info">
-          <h3>Fujifilm XA3</h3>
-          <ul>
-            <li><i class="fas fa-check"></i> Cảm biến: 24.2MP APS-C CMOS</li>
-            <li><i class="fas fa-check"></i> Ống kính: Fujinon 16-50mm f/3.5-5.6 OIS II</li>
-            <li><i class="fas fa-check"></i> ISO: 200-6400 (mở rộng 100-25600)</li>
-            <li><i class="fas fa-check"></i> Màn hình: 3" lật cảm ứng</li>
-          </ul>
-          <div class="price">Giá thuê 1 buổi chỉ từ 80K <span></span></div>
-          <div class="btn-group">
-            <button class="btn btn-sm btn-outline" onclick="showPricing('xa3', this)">Bảng Giá</button>
-            <button class="btn btn-sm btn-dark" onclick="showGallery('xa3', this)">Xem Ảnh Mẫu</button>
-            <button class="btn btn-sm btn-success" onclick="showAccessories('xa3', this)">Phụ Kiện</button>
-            <button class="btn btn-sm btn-primary" onclick="showRent('xa3', this)">Thuê Ngay</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="camera-card" data-price="125000" data-name="Fujifilm XT-10">
-        <div class="camera-img">
-          <img src="https://i.imgur.com/ecBiRtt.png" alt="Fujifilm XT-10">
-        </div>
-        <div class="camera-info">
-          <h3>Fujifilm XT-10</h3>
-          <ul>
-            <li><i class="fas fa-check"></i> Cảm biến 16.3MP X-Trans II – Màu trắng hồng đặc trưng, da mịn màng</li>
-            <li><i class="fas fa-check"></i> Ống kính: Fujinon XC 16-50mm f/3.5-5.6 đa dụng, chụp chân dung, street, phong cảnh rất đa dạng</li>
-            <li><i class="fas fa-check"></i> ISO từ 200 đến 6400 (mở rộng tối đa 51200) – Chụp thiếu sáng tốt, ảnh sáng rõ</li>
-            <li><i class="fas fa-check"></i> Chụp liên tiếp: 8 fps – Bắt khoảnh khắc nhanh, chính xác</li>
-            <li><i class="fas fa-check"></i> Giả lập màu phim độc quyền – Sẵn tone điện ảnh, vintage, không cần hậu kỳ</li>
-          </ul>
-          <div class="price">Giá thuê 1 buổi chỉ từ 120K <span></span></div>
-          <div class="btn-group">
-            <button class="btn btn-sm btn-outline" onclick="showPricing('xt10', this)">Bảng Giá</button>
-            <button class="btn btn-sm btn-dark" onclick="showGallery('xt10', this)">Xem Ảnh Mẫu</button>
-            <button class="btn btn-sm btn-success" onclick="showAccessories('xt10', this)">Phụ Kiện</button>
-            <button class="btn btn-sm btn-primary" onclick="showRent('xt10', this)">Thuê Ngay</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Terms Section -->
+  <!-- Detail Sections Container -->
   <div class="container">
+    <!-- Terms Section -->
     <div class="detail-section" id="terms">
-      <h2>Chính Sách Thuê Máy</h2>
+      <h2>Điều Khoản Thuê Máy</h2>
       <ul>
         <li>Khách hàng cần đặt cọc 2 triệu đồng và cung cấp CCCD. Khi kết thúc thời gian thuê, vui lòng đến shop để bàn giao máy ảnh, shop sẽ hoàn trả 100% tiền cọc và CCCD.</li>
         <li>Khi nhận máy ảnh, bộ sản phẩm bao gồm: máy ảnh, ống kính, dây đeo, sạc, pin, thẻ nhớ, túi đựng và ốp máy ảnh. Khách hàng có trách nhiệm kiểm tra kỹ lưỡng.</li>
         <li>Trong 2 giờ đầu tiên sau khi nhận máy, nếu phát hiện máy ảnh có lỗi hoặc hỏng hóc, khách hàng cần báo ngay cho shop để được khắc phục.</li>
         <li>Trong trường hợp máy ảnh bị hỏng hóc hoặc va đập do lỗi của khách hàng, khách hàng phải chịu chi phí sửa chữa hoặc bồi thường 100% giá trị máy.</li>
+        <li class="note">Liên hệ ngay nếu bạn có bất kỳ thắc mắc nào!</li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <!-- Accessories Sections -->
@@ -912,33 +1126,56 @@
       <h2>Phụ Kiện Fujifilm XA2</h2>
       <ul>
         <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
-        <li>Túi đựng máy ảnh</li>
-        <li>Dây đeo máy ảnh</li>
+        <li>Túi đựng máy ảnh chống sốc</li>
+        <li>Dây đeo máy ảnh chính hãng</li>
         <li>Đầu chuyển ảnh vào điện thoại</li>
+        <li>Hướng dẫn sử dụng cơ bản</li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <div class="detail-section" id="accessories-xa3">
       <h2>Phụ Kiện Fujifilm XA3</h2>
       <ul>
         <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
-        <li>Túi đựng máy ảnh</li>
-        <li>Dây đeo máy ảnh</li>
+        <li>Túi đựng máy ảnh chống sốc</li>
+        <li>Dây đeo máy ảnh chính hãng</li>
         <li>Đầu chuyển ảnh vào điện thoại</li>
+        <li>Hướng dẫn sử dụng cơ bản</li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <div class="detail-section" id="accessories-xt10">
       <h2>Phụ Kiện Fujifilm XT-10</h2>
       <ul>
         <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
-        <li>Túi đựng máy ảnh</li>
-        <li>Dây đeo máy ảnh</li>
+        <li>Túi đựng máy ảnh chống sốc</li>
+        <li>Dây đeo máy ảnh chính hãng</li>
         <li>Đầu chuyển ảnh vào điện thoại</li>
+        <li>Hướng dẫn sử dụng cơ bản</li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
+    </div>
+
+    <div class="detail-section" id="accessories-xt100">
+      <h2>Phụ Kiện Fujifilm XT-100</h2>
+      <ul>
+        <li>Máy ảnh (body và lens), pin (có đi kèm sạc pin), thẻ nhớ, bao da (case) tuỳ máy.</li>
+        <li>Túi đựng máy ảnh chống sốc</li>
+        <li>Dây đeo máy ảnh chính hãng</li>
+        <li>Đầu chuyển ảnh vào điện thoại</li>
+        <li>Hướng dẫn sử dụng cơ bản</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <!-- Pricing Sections -->
@@ -950,9 +1187,11 @@
         <li>2 ngày: 160.000đ</li>
         <li>3 ngày: 175.000đ</li>
         <li>Thuê trên 5 ngày: Liên hệ shop</li>
-        <li class="note">Lưu ý : Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 160.000đ và 175.000đ</li>
+        <li class="note">Lưu ý: Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 160.000đ và 175.000đ</li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <div class="detail-section" id="pricing-xa3">
@@ -963,9 +1202,11 @@
         <li>2 ngày: 200.000đ</li>
         <li>3 ngày: 250.000đ</li>
         <li>Thuê trên 5 ngày: Liên hệ shop</li>
-        <li class="note">Lưu ý : Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 200.000đ và 250.000đ</li>
+        <li class="note">Lưu ý: Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 200.000đ và 250.000đ</li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <div class="detail-section" id="pricing-xt10">
@@ -976,92 +1217,194 @@
         <li>2 ngày: 250.000đ</li>
         <li>3 ngày: 350.000đ</li>
         <li>Thuê trên 5 ngày: Liên hệ shop</li>
-        <li class="note">Lưu ý : Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 250.000đ và 350.000đ</li>
+        <li class="note">Lưu ý: Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 250.000đ và 350.000đ</li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
+    </div>
+
+    <div class="detail-section" id="pricing-xt100">
+      <h2>Bảng Giá Fujifilm XT-100</h2>
+      <ul>
+        <li>8 giờ: 150.000đ</li>
+        <li>1 ngày: 180.000đ</li>
+        <li>2 ngày: 300.000đ</li>
+        <li>3 ngày: 400.000đ</li>
+        <li>Thuê trên 5 ngày: Liên hệ shop</li>
+        <li class="note">Lưu ý: Tổng chi phí cho cả 2 ngày hoặc 3 ngày là: 300.000đ và 400.000đ</li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <!-- Rent Sections -->
     <div class="detail-section" id="rent-xa2">
       <h2>Thuê Fujifilm XA2</h2>
+
       <ul class="contact-list">
-        <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
-        <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
+        <li><a href="https://www.instagram.com/laho.camera" target="_blank">
+          <i class="fab fa-instagram"></i>Nhắn tin qua Instagram
+        </a></li>
+        <li><a href="tel:0346733235">
+          <i class="fas fa-phone"></i>Gọi điện: 0346 733 235
+        </a></li>
+        <li><a href="https://zalo.me/0346733235" target="_blank">
+          <i class="fab fa-facebook-messenger"></i>Nhắn tin qua Zalo
+        </a></li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <div class="detail-section" id="rent-xa3">
       <h2>Thuê Fujifilm XA3</h2>
+
       <ul class="contact-list">
-        <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
-        <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
+        <li><a href="https://www.instagram.com/laho.camera" target="_blank">
+          <i class="fab fa-instagram"></i>Nhắn tin qua Instagram
+        </a></li>
+        <li><a href="tel:0346733235">
+          <i class="fas fa-phone"></i>Gọi điện: 0346 733 235
+        </a></li>
+        <li><a href="https://zalo.me/0346733235" target="_blank">
+          <i class="fab fa-facebook-messenger"></i>Nhắn tin qua Zalo
+        </a></li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <div class="detail-section" id="rent-xt10">
       <h2>Thuê Fujifilm XT-10</h2>
+
       <ul class="contact-list">
-        <li><a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i>Nhắn tin qua Instagram</a></li>
-        <li><a href="tel:0346733235"><i class="fas fa-phone"></i>Gọi điện: 0346 733 235</a></li>
+        <li><a href="https://www.instagram.com/laho.camera" target="_blank">
+          <i class="fab fa-instagram"></i>Nhắn tin qua Instagram
+        </a></li>
+        <li><a href="tel:0346733235">
+          <i class="fas fa-phone"></i>Gọi điện: 0346 733 235
+        </a></li>
+        <li><a href="https://zalo.me/0346733235" target="_blank">
+          <i class="fab fa-facebook-messenger"></i>Nhắn tin qua Zalo
+        </a></li>
       </ul>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
+    </div>
+
+    <div class="detail-section" id="rent-xt100">
+      <h2>Thuê Fujifilm XT-100</h2>
+
+      <ul class="contact-list">
+        <li><a href="https://www.instagram.com/laho.camera" target="_blank">
+          <i class="fab fa-instagram"></i>Nhắn tin qua Instagram
+        </a></li>
+        <li><a href="tel:0346733235">
+          <i class="fas fa-phone"></i>Gọi điện: 0346 733 235
+        </a></li>
+        <li><a href="https://zalo.me/0346733235" target="_blank">
+          <i class="fab fa-facebook-messenger"></i>Nhắn tin qua Zalo
+        </a></li>
+      </ul>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
     <!-- Gallery Sections -->
-    <div class="gallery" id="gallery-xa2">
+    <div class="gallery-container" id="gallery-xa2">
       <h2 class="section-title">Ảnh Mẫu Fujifilm XA2</h2>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/8RbBQCe.jpeg" alt="Fujifilm XA2 Sample 1">
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/8RbBQCe.jpeg" alt="Fujifilm XA2 Sample 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/Z7wozpL.jpeg" alt="Fujifilm XA2 Sample 2">
+        </div>
+        <div class="gallery-item">
+          <img src="https://farm9.staticflickr.com/8712/16879779340_091f7a63ba_o.png" alt="Fujifilm XA2 Sample 3">
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/Z7wozpL.jpeg" alt="Fujifilm XA2 Sample 2">
-      </div>
-      <div class="gallery-item">
-        <img src="https://farm9.staticflickr.com/8712/16879779340_091f7a63ba_o.png" alt="Fujifilm XA2 Sample 3">
-      </div>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
-    <div class="gallery" id="gallery-xa3">
+    <div class="gallery-container" id="gallery-xa3">
       <h2 class="section-title">Ảnh Mẫu Fujifilm XA3</h2>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/qdTiWdt.jpeg" alt="Fujifilm XA3 Sample 1">
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/qdTiWdt.jpeg" alt="Fujifilm XA3 Sample 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/EVvifPU.jpeg" alt="Fujifilm XA3 Sample 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/r4QQYwb.jpeg" alt="Fujifilm XA3 Sample 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/uttBNKG.jpeg" alt="Fujifilm XA3 Sample 2">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/LjnW5Pv.jpeg" alt="Fujifilm XA3 Sample 3">
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/EVvifPU.jpeg" alt="Fujifilm XA3 Sample 1">
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/r4QQYwb.jpeg" alt="Fujifilm XA3 Sample 1">
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/uttBNKG.jpeg" alt="Fujifilm XA3 Sample 2">
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/LjnW5Pv.jpeg" alt="Fujifilm XA3 Sample 3">
-      </div>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
 
-    <div class="gallery" id="gallery-xt10">
+    <div class="gallery-container" id="gallery-xt10">
       <h2 class="section-title">Ảnh Mẫu Fujifilm XT-10</h2>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/V82P5E0.jpeg" alt="Fujifilm XT-10 Sample 1">
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/V82P5E0.jpeg" alt="Fujifilm XT-10 Sample 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/bq7xr6q.jpeg" alt="Fujifilm XT-10 Sample 2">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/0aN60V5.jpeg" alt="Fujifilm XT-10 Sample 3">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/wQVr6Ox.jpeg" alt="Fujifilm XT-10 Sample 4">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/nXD3rVI.jpeg" alt="Fujifilm XT-10 Sample 5">
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/bq7xr6q.jpeg" alt="Fujifilm XT-10 Sample 2">
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
+    </div>
+
+    <div class="gallery-container" id="gallery-xt100">
+      <h2 class="section-title">Ảnh Mẫu Fujifilm XT-100</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/V82P5E0.jpeg" alt="Fujifilm XT-100 Sample 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/bq7xr6q.jpeg" alt="Fujifilm XT-100 Sample 2">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/0aN60V5.jpeg" alt="Fujifilm XT-100 Sample 3">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/wQVr6Ox.jpeg" alt="Fujifilm XT-100 Sample 4">
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/nXD3rVI.jpeg" alt="Fujifilm XT-100 Sample 5">
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/0aN60V5.jpeg" alt="Fujifilm XT-10 Sample 3">
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/wQVr6Ox.jpeg" alt="Fujifilm XT-10 Sample 4">
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/nXD3rVI.jpeg" alt="Fujifilm XT-10 Sample 5">
-      </div>
-      <button class="back-btn" onclick="showSection('main-content')"><i class="fas fa-arrow-left"></i> Quay Lại</button>
+      <button class="back-btn" onclick="showSection('main-content')">
+        <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+      </button>
     </div>
   </div>
 
@@ -1070,7 +1413,9 @@
     <div class="cta-content">
       <h2>Sẵn Sàng Tạo Ra Những Bức Ảnh Tuyệt Vời?</h2>
       <p>Liên hệ ngay với chúng tôi để thuê máy ảnh chất lượng cao với giá cả phải chăng</p>
-      <a href="https://www.instagram.com/lhngcc" target="_blank" class="btn btn-primary">Liên Hệ Thuê Máy</a>
+      <a href="https://www.instagram.com/laho.camera" target="_blank" class="btn btn-primary">
+        <i class="fas fa-calendar-check"></i> Đặt Lịch Thuê Ngay
+      </a>
     </div>
   </section>
 
@@ -1079,10 +1424,10 @@
     <div class="footer-content">
       <div class="footer-column">
         <h3>Về LaHo Camera</h3>
-        <p>Dịch vụ cho thuê máy ảnh chuyên nghiệp, uy tín và chất lượng hàng đầu tại Việt Nam.</p>
+        <p>Dịch vụ cho thuê máy ảnh chuyên nghiệp, uy tín và chất lượng hàng đầu tại Hà Nội. Chúng tôi cung cấp các dòng máy ảnh cao cấp với giá thuê hợp lý.</p>
         <div class="social-links">
           <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/lhngcc" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/laho.camera" target="_blank"><i class="fab fa-instagram"></i></a>
           <a href="mailto:info@lahocamera.com"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
@@ -1092,14 +1437,16 @@
           <li><a href="tel:0346733235"><i class="fas fa-phone"></i>0346 733 235</a></li>
           <li><a href="mailto:info@lahocamera.com"><i class="fas fa-envelope"></i>info@lahocamera.com</a></li>
           <li><a href="#"><i class="fas fa-map-marker-alt"></i>Hà Nội, Việt Nam</a></li>
+          <li><a href="https://zalo.me/0346733235" target="_blank"><i class="fab fa-facebook-messenger"></i>Zalo: 0346 733 235</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h3>Thông Tin</h3>
         <ul class="footer-links">
-          <li><a href="#" onclick="showSection('terms')"><i class="fas fa-info-circle"></i>Chính Sách Thuê</a></li>
+          <li><a href="#" onclick="showSection('terms')"><i class="fas fa-info-circle"></i>Điều Khoản Thuê</a></li>
           <li><a href="#"><i class="fas fa-question-circle"></i>Hỏi Đáp</a></li>
-          <li><a href="#"><i class="fas fa-shipping-fast"></i>Giao Nhận</a></li>
+          <li><a href="#"><i class="fas fa-shipping-fast"></i>Giao Nhận Tận Nơi</a></li>
+          <li><a href="#"><i class="fas fa-hand-holding-usd"></i>Chính Sách Giá</a></li>
         </ul>
       </div>
     </div>
@@ -1114,7 +1461,7 @@
     // Initialize the page
     document.addEventListener('DOMContentLoaded', () => {
       // Hide all detail sections initially
-      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+      document.querySelectorAll('.detail-section, .gallery-container').forEach(section => {
         section.classList.remove('active');
       });
       
@@ -1133,7 +1480,7 @@
     // Show a specific section
     function showSection(sectionId, scrollPosition = lastScrollPosition) {
       // Hide all sections
-      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+      document.querySelectorAll('.detail-section, .gallery-container').forEach(section => {
         section.classList.remove('active');
       });
       
@@ -1145,10 +1492,10 @@
       // Show the requested section
       if (sectionId !== 'main-content') {
         document.getElementById(sectionId).classList.add('active');
-        window.scrollTo({ top: 0 });
+        window.scrollTo(0, 0); // Instant scroll to top
       } else {
-        // Restore scroll position when returning to main content
-        window.scrollTo({ top: scrollPosition });
+        // Restore scroll position instantly when returning to main content
+        window.scrollTo(0, scrollPosition);
       }
       
       // Close mobile menu if open
@@ -1166,15 +1513,15 @@
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('header').style.display = 'none';
       document.getElementById('cta-section').style.display = 'none';
-      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+      document.querySelectorAll('.detail-section, .gallery-container').forEach(section => {
         section.classList.remove('active');
       });
       
       // Show the requested gallery
       document.getElementById(`gallery-${model}`).classList.add('active');
       
-      // Scroll to top
-      window.scrollTo({ top: 0 });
+      // Instant scroll to top
+      window.scrollTo(0, 0);
     }
     
     // Show accessories for a specific camera model
@@ -1187,15 +1534,15 @@
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('header').style.display = 'none';
       document.getElementById('cta-section').style.display = 'none';
-      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+      document.querySelectorAll('.detail-section, .gallery-container').forEach(section => {
         section.classList.remove('active');
       });
       
       // Show the requested accessories section
       document.getElementById(`accessories-${model}`).classList.add('active');
       
-      // Scroll to top
-      window.scrollTo({ top: 0 });
+      // Instant scroll to top
+      window.scrollTo(0, 0);
     }
     
     // Show pricing for a specific camera model
@@ -1208,15 +1555,15 @@
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('header').style.display = 'none';
       document.getElementById('cta-section').style.display = 'none';
-      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+      document.querySelectorAll('.detail-section, .gallery-container').forEach(section => {
         section.classList.remove('active');
       });
       
       // Show the requested pricing section
       document.getElementById(`pricing-${model}`).classList.add('active');
       
-      // Scroll to top
-      window.scrollTo({ top: 0 });
+      // Instant scroll to top
+      window.scrollTo(0, 0);
     }
     
     // Show rent info for a specific camera model
@@ -1229,15 +1576,15 @@
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('header').style.display = 'none';
       document.getElementById('cta-section').style.display = 'none';
-      document.querySelectorAll('.detail-section, .gallery').forEach(section => {
+      document.querySelectorAll('.detail-section, .gallery-container').forEach(section => {
         section.classList.remove('active');
       });
       
       // Show the requested rent section
       document.getElementById(`rent-${model}`).classList.add('active');
       
-      // Scroll to top
-      window.scrollTo({ top: 0 });
+      // Instant scroll to top
+      window.scrollTo(0, 0);
     }
     
     // Search cameras by name
